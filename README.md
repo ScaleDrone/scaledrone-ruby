@@ -1,5 +1,5 @@
 # scaledrone-ruby
-Official ScaleDrone Node.js pushing library
+Official ScaleDrone Python pushing library. This is a wrapper around the REST API.
 
 ##Installation
 
