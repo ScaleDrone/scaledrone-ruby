@@ -8,7 +8,17 @@ class ScaleDroneTest < Minitest::Test
       channel_id: 'G3TYvCzoXtrIuEtQ',
       secret_key: 'M7Oc1DY2FgkCaUh4aQFC3TRV1R3RThPd'
     })
-    response = sd.publish('notifications', {foo: 'bar'})
+    response = sd.publish({foo: 'bar'}, 'notifications')
+    assert_equal 200, response.code
+  end
+
+  def test_publish_multiple_rooms
+    sd = ScaleDrone.new({
+      channel_id: 'G3TYvCzoXtrIuEtQ',
+      secret_key: 'M7Oc1DY2FgkCaUh4aQFC3TRV1R3RThPd'
+    })
+    rooms = ['lounge', 'notifications']
+    response = sd.publish({ruby: 'multi'}, *rooms)
     assert_equal 200, response.code
   end
 

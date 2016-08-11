@@ -1,7 +1,7 @@
-# scaledrone-ruby
+# Scaledrone Ruby API
 Official ScaleDrone Ruby pushing library. This is a wrapper around the REST API.
 
-##Installation
+## Installation
 
 Add this line to your application's Gemfile:
 ```
@@ -16,7 +16,7 @@ Or install it directly:
 gem install 'scaledrone'
 ```
 
-##Usage
+## Usage
 Create a new instance of ScaleDrone passing it the `channelId` and `secretKey` that you can find from the channel's page
 ```ruby
 require 'scaledrone'
@@ -27,19 +27,27 @@ sd = ScaleDrone.new({
 })
 ```
 
-Publishing a message
+### Publishing a message
+**Please notice that in 1.0.0 the function header changed, when upgrading from 0.X.X you need to switch message and room order.**
 ```ruby
 room = 'notifications'
 message = {foo: 'bar'}
-response = sd.publish(room, message)
+response = sd.publish(message, room)
 ```
 
-Channel stats
+### Publishing the same message to multiple rooms
+```ruby
+rooms = ['notifications', 'lounge']
+message = {foo: 'bar'}
+response = sd.publish(message, *rooms)
+```
+
+### Channel stats
 ```ruby
 response = sd.channel_stats()
 ```
 
-Connected users list
+### Connected users list
 ```javascript
 response = sd.users_list()
 ```
