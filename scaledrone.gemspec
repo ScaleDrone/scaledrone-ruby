@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "scaledrone"
-  spec.version       = "1.0.0"
+  spec.version       = "1.1.0"
   spec.date          = Time.now
   spec.authors       = ["Serge Herkül"]
   spec.email         = ["info@scaledrone.com"]
